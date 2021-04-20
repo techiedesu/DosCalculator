@@ -59,15 +59,5 @@ namespace DosCalculator.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap photo_2021_04_03_22_21_42 {
-            get {
-                object obj = ResourceManager.GetObject("photo_2021-04-03_22-21-42", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
