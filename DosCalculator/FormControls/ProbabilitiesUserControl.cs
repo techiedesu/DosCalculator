@@ -19,7 +19,7 @@ namespace DosCalculator.FormControls
             InitializeComponent();
         }
 
-        private void probabilitiesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void ProbabilitiesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Calculate();
         }
@@ -35,7 +35,7 @@ namespace DosCalculator.FormControls
 
             for (var i = 0; i < _probabilities.Length; i++)
             {
-                probabilitiesListBox.Items.Add($"p{i + 1} = {Infix.Format(probabilities[i])}");
+                probabilitiesListBox.Items.Add($"π{i + 1} = {Infix.Format(probabilities[i])}");
             }
         }
 
@@ -55,9 +55,8 @@ namespace DosCalculator.FormControls
             var unavailabilityCoefficient = 1 - availabilityCoefficient;
 
             var parser = new TexFormulaParser();
-            var x = Algebraic.Expand(availabilityCoefficient);
 
-            var formula = parser.Parse(@"\text{К}_{\text{Г}} = " + x.AsLatex());
+            var formula = parser.Parse(@"\text{К}_{\text{Г}} = " + Algebraic.Expand(unavailabilityCoefficient).AsLatex());
             using var stream = new MemoryStream(formula.RenderToPng(20.0, 0.0, 0.0, "Arial"));
             resultPictureBox.Image = Image.FromStream(stream);
         }

@@ -38,7 +38,6 @@ namespace DosCalculator.FormControls
                 for (var j = 0; j < _textBoxes[i].Count; j++)
                 {
                     var textBox = _textBoxes[i][j];
-                    textBox.ForeColor = Color.Blue;
                     array[i, j] = textBox.Text;
                 }
             }
@@ -52,7 +51,7 @@ namespace DosCalculator.FormControls
             {
                 for (var verticalPos = 0; verticalPos < HorizontalElementCount; verticalPos++)
                 {
-                    CreateTextBox(verticalPos, horizontalPos);
+                    CreateTextBox(verticalPos, horizontalPos, false);
                 }
             }
 
@@ -103,7 +102,7 @@ namespace DosCalculator.FormControls
             }
         }
 
-        private void CreateTextBox(int verticalPos, int horizontalPos)
+        private void CreateTextBox(int verticalPos, int horizontalPos, bool modifyCounter = true)
         {
             const int paddingTopBottom = 15;
             const int paddingLeftRight = 15;
@@ -117,7 +116,8 @@ namespace DosCalculator.FormControls
                 Size = new Size(60, 23),
                 Multiline = false,
                 BorderStyle = BorderStyle.Fixed3D,
-                TabIndex = verticalPos + 100 * horizontalPos
+                TabIndex = verticalPos + 100 * horizontalPos,
+                BorderColor = Color.Red,
             };
 
             textBox.KeyPress += TextBox_KeyPress;
@@ -129,8 +129,11 @@ namespace DosCalculator.FormControls
             _textBoxes[horizontalPos].Add(textBox);
             Controls.Add(textBox);
 
-            HorizontalElementCount = GetHorizontalTextBoxCount();
-            VerticalElementCount = GetVerticalTextBoxCount();
+            if(modifyCounter)
+            {
+                HorizontalElementCount = GetHorizontalTextBoxCount();
+                VerticalElementCount = GetVerticalTextBoxCount();
+            }
         }
 
         private void TextBox_KeyUp(object sender, KeyEventArgs e)

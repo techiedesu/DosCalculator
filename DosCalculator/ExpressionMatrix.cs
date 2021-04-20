@@ -78,7 +78,7 @@ namespace DosCalculator
                           CreateMatrixWithoutColumn(j).CreateMatrixWithoutRow(1).CalculateDeterminant();
             }
 
-            return result;
+            return Algebraic.Expand(result);
         }
 
         public Expression CalculateSubmatrixDeterminant(int numbers)
@@ -106,7 +106,7 @@ namespace DosCalculator
 
             var result = new ExpressionMatrix(M, N - 1);
             result.ProcessFunctionOverData((i, j) => result[i, j] = j < column ? this[i, j] : this[i, j + 1]);
-                
+
             return result;
         }
 

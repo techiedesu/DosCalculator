@@ -57,6 +57,7 @@ namespace DosCalculator
             matrixUserControl.ReplaceToGreece = sender.AsCheckBox().Checked;
         }
 
+        // TODO: Out of range.
         private void CalculateButton_Click(object sender, EventArgs e)
         {
             var matrix = new ExpressionMatrix(matrixUserControl.VerticalElementCount, matrixUserControl.HorizontalElementCount);

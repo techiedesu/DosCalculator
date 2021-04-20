@@ -47,40 +47,46 @@ namespace DosCalculator.FormControls
             // 
             this.probabilitiesListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.probabilitiesListBox.FormattingEnabled = true;
-            this.probabilitiesListBox.Location = new System.Drawing.Point(3, 19);
+            this.probabilitiesListBox.Location = new System.Drawing.Point(4, 29);
+            this.probabilitiesListBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.probabilitiesListBox.Name = "probabilitiesListBox";
-            this.probabilitiesListBox.Size = new System.Drawing.Size(377, 148);
+            this.probabilitiesListBox.Size = new System.Drawing.Size(539, 249);
             this.probabilitiesListBox.TabIndex = 0;
-            this.probabilitiesListBox.SelectedIndexChanged += new System.EventHandler(this.probabilitiesListBox_SelectedIndexChanged);
+            this.probabilitiesListBox.SelectedIndexChanged += new System.EventHandler(this.ProbabilitiesListBox_SelectedIndexChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.probabilitiesListBox);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(383, 170);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(547, 283);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Выберите %s вероятности";
+            this.groupBox1.Text = "4. Выберите предельные вероятности для расчёта Кг";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.resultPictureBox);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(383, 167);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(547, 278);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Результаты";
+            this.groupBox2.Text = "5. Результаты";
             // 
             // resultPictureBox
             // 
             this.resultPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.resultPictureBox.Location = new System.Drawing.Point(3, 19);
+            this.resultPictureBox.Location = new System.Drawing.Point(4, 29);
+            this.resultPictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.resultPictureBox.Name = "resultPictureBox";
-            this.resultPictureBox.Size = new System.Drawing.Size(377, 145);
+            this.resultPictureBox.Size = new System.Drawing.Size(539, 244);
             this.resultPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.resultPictureBox.TabIndex = 1;
             this.resultPictureBox.TabStop = false;
@@ -90,6 +96,7 @@ namespace DosCalculator.FormControls
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -100,17 +107,19 @@ namespace DosCalculator.FormControls
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(383, 341);
-            this.splitContainer1.SplitterDistance = 170;
+            this.splitContainer1.Size = new System.Drawing.Size(547, 568);
+            this.splitContainer1.SplitterDistance = 283;
+            this.splitContainer1.SplitterWidth = 7;
             this.splitContainer1.TabIndex = 3;
             // 
             // ProbabilitiesUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ProbabilitiesUserControl";
-            this.Size = new System.Drawing.Size(383, 341);
+            this.Size = new System.Drawing.Size(547, 568);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.resultPictureBox)).EndInit();

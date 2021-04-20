@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DosCalculator", "DosCalculator\DosCalculator.csproj", "{3BC12CA8-BF9F-4304-BAE3-A22438A8E974}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DosCalculator", "DosCalculator\DosCalculator.csproj", "{3BC12CA8-BF9F-4304-BAE3-A22438A8E974}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DosCalculator.Tests", "DosCalculator.Tests\DosCalculator.Tests.csproj", "{61D88909-E57C-438B-B068-FA9C6E61BDA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{3BC12CA8-BF9F-4304-BAE3-A22438A8E974}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BC12CA8-BF9F-4304-BAE3-A22438A8E974}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BC12CA8-BF9F-4304-BAE3-A22438A8E974}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61D88909-E57C-438B-B068-FA9C6E61BDA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61D88909-E57C-438B-B068-FA9C6E61BDA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61D88909-E57C-438B-B068-FA9C6E61BDA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61D88909-E57C-438B-B068-FA9C6E61BDA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
