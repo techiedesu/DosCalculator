@@ -30,7 +30,7 @@ namespace DosCalculator.FormControls
 
         public bool ExpressionsAreValid()
         {
-            return Multiline ? Text.Split('\n').All(ex => ex.Any() && Infix.Parse(ex).IsOk) 
+            return Multiline ? Text.Split('\n').All(ex => ex.Any() && Infix.Parse(ex).IsOk)
                 : Text.Any() && Infix.Parse(Text).IsOk;
         }
 
@@ -62,6 +62,12 @@ namespace DosCalculator.FormControls
             base.OnSizeChanged(e);
             RedrawWindow(Handle, IntPtr.Zero, IntPtr.Zero,
                 RdwFrame | RdwIupdatenow | RdwInvalidate);
+        }
+
+        protected override void OnKeyUp(KeyEventArgs e)
+        {
+            base.OnKeyUp(e);
+            BorderColor = ExpressionsAreValid() ? Color.Blue : Color.Red;
         }
     }
 }
