@@ -31,14 +31,14 @@ namespace DosCalculator
         {
             matrixUserControl.AddVertical();
             matrixUserControl.AddHorizontal();
-            Validate();
+            //Validate();
         }
 
         private void MinusButton_Click(object sender, EventArgs e)
         {
             matrixUserControl.RemoveVertical();
             matrixUserControl.RemoveHorizontal();
-            Validate();
+            //Validate();
         }
 
         private bool ShouldFormClose()
@@ -52,7 +52,7 @@ namespace DosCalculator
             return true;
         }
 
-        private void greeceReplacementCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void GreeceReplacementCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             matrixUserControl.ReplaceToGreece = sender.AsCheckBox().Checked;
         }

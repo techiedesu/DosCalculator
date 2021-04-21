@@ -126,7 +126,7 @@ namespace DosCalculator
             this.greeceReplacementCheckBox.TabIndex = 9;
             this.greeceReplacementCheckBox.Text = "Греческие символы";
             this.greeceReplacementCheckBox.UseVisualStyleBackColor = true;
-            this.greeceReplacementCheckBox.CheckedChanged += new System.EventHandler(this.greeceReplacementCheckBox_CheckedChanged);
+            this.greeceReplacementCheckBox.CheckedChanged += new System.EventHandler(this.GreeceReplacementCheckBox_CheckedChanged);
             // 
             // groupBox3
             // 
