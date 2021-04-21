@@ -31,6 +31,11 @@ namespace DosCalculator
         {
             matrixUserControl.AddVertical();
             matrixUserControl.AddHorizontal();
+
+            if (!minusButton.Enabled)
+                minusButton.Enabled = true;
+
+
             //Validate();
         }
 
@@ -38,6 +43,10 @@ namespace DosCalculator
         {
             matrixUserControl.RemoveVertical();
             matrixUserControl.RemoveHorizontal();
+
+            if (matrixUserControl.VerticalElementCount < 4)
+                minusButton.Enabled = false;
+
             //Validate();
         }
 
@@ -60,7 +69,8 @@ namespace DosCalculator
         // TODO: Out of range.
         private void CalculateButton_Click(object sender, EventArgs e)
         {
-            var matrix = new ExpressionMatrix(matrixUserControl.VerticalElementCount, matrixUserControl.HorizontalElementCount);
+            // Possible props caching. Using functions instead props.
+            var matrix = new ExpressionMatrix(matrixUserControl.GetVerticalElementCount(), matrixUserControl.GetHorizontalElementCount());
             var userMatrix = matrixUserControl.GetMatrix();
             var matrixSingleSideLength = userMatrix.GetLength(0);
 

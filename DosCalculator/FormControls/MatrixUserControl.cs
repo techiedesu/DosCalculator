@@ -29,6 +29,16 @@ namespace DosCalculator.FormControls
             InitializeComponent();
         }
 
+        public int GetVerticalElementCount()
+        {
+            return VerticalElementCount;
+        }
+
+        public int GetHorizontalElementCount()
+        {
+            return HorizontalElementCount;
+        }
+
         public string[,] GetMatrix()
         {
             var array = new string[_textBoxes.Count, _textBoxes.First().Value.Count];
