@@ -34,9 +34,6 @@ namespace DosCalculator
 
             if (!minusButton.Enabled)
                 minusButton.Enabled = true;
-
-
-            //Validate();
         }
 
         private void MinusButton_Click(object sender, EventArgs e)
@@ -46,8 +43,6 @@ namespace DosCalculator
 
             if (matrixUserControl.VerticalElementCount < 4)
                 minusButton.Enabled = false;
-
-            //Validate();
         }
 
         private bool ShouldFormClose()
@@ -66,7 +61,6 @@ namespace DosCalculator
             matrixUserControl.ReplaceToGreece = sender.AsCheckBox().Checked;
         }
 
-        // TODO: Out of range.
         private void CalculateButton_Click(object sender, EventArgs e)
         {
             // Possible props caching. Using functions instead props.

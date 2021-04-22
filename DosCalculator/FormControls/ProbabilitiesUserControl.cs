@@ -19,7 +19,7 @@ namespace DosCalculator.FormControls
             InitializeComponent();
         }
 
-        private void ProbabilitiesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void ProbabilitiesListBox_AnyChange(object sender, EventArgs e)
         {
             Calculate();
         }
@@ -43,22 +43,29 @@ namespace DosCalculator.FormControls
         {
             var goodProbabilities = new List<Expression>();
 
-            // CheckedItemCollection doesn't work with LINQ.
             for (var i = 0; i < probabilitiesListBox.CheckedItems.Count; i++)
             {
                 goodProbabilities.Add(_probabilities[i]);
             }
 
-            // TODO: Add check.
             var sumOfProbabilities = _probabilities.Aggregate((sumOfP, p) => sumOfP + p);
             var availabilityCoefficient = goodProbabilities.Any() ? goodProbabilities.Aggregate((sumOfP, p) => sumOfP + p) / sumOfProbabilities : 0;
             var unavailabilityCoefficient = 1 - availabilityCoefficient;
 
             var parser = new TexFormulaParser();
 
-            var formula = parser.Parse(@"\text{К}_{\text{Г}} = " + Algebraic.Expand(unavailabilityCoefficient).AsLatex());
-            using var stream = new MemoryStream(formula.RenderToPng(20.0, 0.0, 0.0, "Arial"));
-            resultPictureBox.Image = Image.FromStream(stream);
+            var readyFormula = parser.Parse(@"\text{К}_{\text{Г}} = " + Algebraic.Expand(availabilityCoefficient).AsLatex());
+            ApplyTexFormulaToPictureBox(readyFormula, readyPictureBox);
+            var notReadyFormula = parser.Parse(@"\text{К}_{\text{Н}} = " + Algebraic.Expand(unavailabilityCoefficient).AsLatex());
+            ApplyTexFormulaToPictureBox(notReadyFormula, notReadyPictureBox);
+            var checkFormula = parser.Parse(@"\text{К}_{\text{Г}} + \text{К}_{\text{Н}} = " + Algebraic.Expand(availabilityCoefficient + unavailabilityCoefficient).AsLatex());
+            ApplyTexFormulaToPictureBox(checkFormula, checkPictureBox);
+        }
+
+        private static void ApplyTexFormulaToPictureBox(TexFormula texFormula, PictureBox pictureBox)
+        {
+            using var checkFormulaStream = new MemoryStream(texFormula.RenderToPng(200.0, 0.0, 0.0, "Arial"));
+            pictureBox.Image = Image.FromStream(checkFormulaStream);
         }
     }
 }
