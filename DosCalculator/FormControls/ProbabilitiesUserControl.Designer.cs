@@ -68,6 +68,7 @@ namespace DosCalculator.FormControls
             this.probabilitiesListBox.Size = new System.Drawing.Size(707, 147);
             this.probabilitiesListBox.TabIndex = 0;
             this.probabilitiesListBox.Click += new System.EventHandler(this.ProbabilitiesListBox_AnyChange);
+            this.probabilitiesListBox.SelectedIndexChanged += new System.EventHandler(this.probabilitiesListBox_SelectedIndexChanged);
             this.probabilitiesListBox.SelectedValueChanged += new System.EventHandler(this.ProbabilitiesListBox_AnyChange);
             // 
             // groupBox1
@@ -168,6 +169,7 @@ namespace DosCalculator.FormControls
             this.checkPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.checkPictureBox.TabIndex = 0;
             this.checkPictureBox.TabStop = false;
+            this.checkPictureBox.Click += new System.EventHandler(this.checkPictureBox_Click);
             // 
             // splitContainer1
             // 

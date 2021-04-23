@@ -181,6 +181,7 @@ namespace DosCalculator
             this.probabilitiesUserControl1.Name = "probabilitiesUserControl1";
             this.probabilitiesUserControl1.Size = new System.Drawing.Size(465, 652);
             this.probabilitiesUserControl1.TabIndex = 3;
+            this.probabilitiesUserControl1.Load += new System.EventHandler(this.probabilitiesUserControl1_Load);
             // 
             // groupBox1
             // 

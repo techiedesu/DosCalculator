@@ -80,5 +80,10 @@ namespace DosCalculator
             var pies = Enumerable.Range(0, matrix.M).Select(i => matrix.CalculateSubmatrixDeterminant(i)).ToArray();
             probabilitiesUserControl1.ApplyCoefficients(pies);
         }
+
+        private void probabilitiesUserControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

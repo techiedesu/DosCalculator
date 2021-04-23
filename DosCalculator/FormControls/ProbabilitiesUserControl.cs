@@ -42,15 +42,15 @@ namespace DosCalculator.FormControls
         public void Calculate()
         {
             var goodProbabilities = new List<Expression>();
-
             for (var i = 0; i < probabilitiesListBox.CheckedItems.Count; i++)
             {
                 goodProbabilities.Add(_probabilities[i]);
             }
 
-            var sumOfProbabilities = _probabilities.Aggregate((sumOfP, p) => sumOfP + p);
-            var availabilityCoefficient = goodProbabilities.Any() ? goodProbabilities.Aggregate((sumOfP, p) => sumOfP + p) / sumOfProbabilities : 0;
-            var unavailabilityCoefficient = 1 - availabilityCoefficient;
+            var badProbabilities = _probabilities.Where(p => !goodProbabilities.Contains(p)).ToList();
+            var sumOfProbabilities = _probabilities.Aggregate((sumOfP, p) => sumOfP + Algebraic.Expand(p));
+            var availabilityCoefficient = goodProbabilities.Any() ? goodProbabilities.Aggregate((sumOfP, p) => sumOfP + Algebraic.Expand(p)) / sumOfProbabilities : 0;
+            var unavailabilityCoefficient = 1 - availabilityCoefficient; // badProbabilities.Any() ? badProbabilities.Aggregate((sumOfP, p) => sumOfP + Algebraic.Expand(p)) / sumOfProbabilities : 0;
 
             var parser = new TexFormulaParser();
 
@@ -58,7 +58,7 @@ namespace DosCalculator.FormControls
             ApplyTexFormulaToPictureBox(readyFormula, readyPictureBox);
             var notReadyFormula = parser.Parse(@"\text{К}_{\text{Н}} = " + Algebraic.Expand(unavailabilityCoefficient).AsLatex());
             ApplyTexFormulaToPictureBox(notReadyFormula, notReadyPictureBox);
-            var checkFormula = parser.Parse(@"\text{К}_{\text{Г}} + \text{К}_{\text{Н}} = " + Algebraic.Expand(availabilityCoefficient + unavailabilityCoefficient).AsLatex());
+            var checkFormula = parser.Parse(@"\text{К}_{\text{Г}} + \text{К}_{\text{Н}} = " + Algebraic.Expand(Algebraic.Expand(availabilityCoefficient + unavailabilityCoefficient)).AsLatex());
             ApplyTexFormulaToPictureBox(checkFormula, checkPictureBox);
         }
 
@@ -66,6 +66,16 @@ namespace DosCalculator.FormControls
         {
             using var checkFormulaStream = new MemoryStream(texFormula.RenderToPng(200.0, 0.0, 0.0, "Arial"));
             pictureBox.Image = Image.FromStream(checkFormulaStream);
+        }
+
+        private void checkPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void probabilitiesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -78,7 +78,7 @@ namespace DosCalculator
                           CreateMatrixWithoutColumn(j).CreateMatrixWithoutRow(1).CalculateDeterminant();
             }
 
-            return Algebraic.Expand(result);
+            return result;
         }
 
         public Expression CalculateSubmatrixDeterminant(int numbers)
