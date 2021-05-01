@@ -39,10 +39,19 @@ namespace DosCalculator.Tests
         }
 
         [Test]
-        public void CalculateSubmatrixDeterminant()
+        [TestCase(0, "-((μ)^3)")]
+        [TestCase(1, "-((μ)^2) * λ")]
+        [TestCase(2, "μ * (-(λ^2))")]
+        [TestCase(3, "-((λ)^3)")]
+        public void CalculateSubmatrixDeterminant(int submatrixNumber, string expressionToParse)
         {
-            var matrix = Algebraic.Expand(_matrix.CalculateDeterminant());
-            Assert.AreEqual(matrix, Infix.ParseOrThrow("0"));
+            var submatrixDeterminant = Algebraic.Expand(_matrix.CalculateSubmatrixDeterminant(submatrixNumber));
+            Assert.AreEqual(Infix.ParseOrThrow(expressionToParse), submatrixDeterminant);
+        }
+
+        public void CalculateProbabilities()
+        {
+            
         }
     }
 }

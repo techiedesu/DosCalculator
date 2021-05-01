@@ -28,10 +28,9 @@ namespace DosCalculator.FormControls
             }
         }
 
-        public bool ExpressionsAreValid()
+        public bool HasValidExpression()
         {
-            return Multiline ? Text.Split('\n').All(ex => ex.Any() && Infix.Parse(ex).IsOk)
-                : Text.Any() && Infix.Parse(Text).IsOk;
+            return Text.Any() && Infix.Parse(Text).IsOk;
         }
 
         [DllImport("user32.dll")]
@@ -67,7 +66,7 @@ namespace DosCalculator.FormControls
         protected override void OnKeyUp(KeyEventArgs e)
         {
             base.OnKeyUp(e);
-            BorderColor = ExpressionsAreValid() ? Color.Blue : Color.Red;
+            BorderColor = HasValidExpression() ? Color.Blue : Color.Red;
         }
     }
 }

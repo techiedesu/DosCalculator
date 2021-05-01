@@ -194,7 +194,7 @@ namespace DosCalculator.FormControls
 
         private void ValidateCalculateButton()
         {
-            var isMatrixValid = _textBoxes.All(t => t.Value.All(tt => tt.ExpressionsAreValid()));
+            var isMatrixValid = _textBoxes.All(t => t.Value.All(tt => tt.HasValidExpression()));
 
             if (_isMatrixValid != isMatrixValid)
             {
