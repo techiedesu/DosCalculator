@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DosCalculator
+namespace DosCalculator.Core
 {
     public static class GreekSymbols
     {

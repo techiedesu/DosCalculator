@@ -1,4 +1,4 @@
-﻿namespace DosCalculator.Extensions
+﻿namespace DosCalculator.Core.Expressions
 {
     public static class StringExtensions
     {

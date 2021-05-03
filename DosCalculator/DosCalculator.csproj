@@ -27,4 +27,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DosCalculator.Core\DosCalculator.Core.csproj" />
+  </ItemGroup>
 </Project>

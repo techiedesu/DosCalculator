@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using DosCalculator.Core.Expressions;
 using DosCalculator.Extensions;
 using MathNet.Symbolics;
 using WpfMath;
@@ -41,6 +42,9 @@ namespace DosCalculator.FormControls
 
         public void Calculate()
         {
+            Expression availabilityCoefficient;
+            Expression unavailabilityCoefficient;
+
             var goodProbabilities = new List<Expression>();
             for (var i = 0; i < probabilitiesListBox.CheckedItems.Count; i++)
             {
@@ -49,8 +53,13 @@ namespace DosCalculator.FormControls
 
             var badProbabilities = _probabilities.Where(p => !goodProbabilities.Contains(p)).ToList();
             var sumOfProbabilities = _probabilities.Aggregate((sumOfP, p) => sumOfP + Algebraic.Expand(p));
-            var availabilityCoefficient = goodProbabilities.Any() ? goodProbabilities.Aggregate((sumOfP, p) => sumOfP + Algebraic.Expand(p)) / sumOfProbabilities : 0;
-            var unavailabilityCoefficient = 1 - availabilityCoefficient; // badProbabilities.Any() ? badProbabilities.Aggregate((sumOfP, p) => sumOfP + Algebraic.Expand(p)) / sumOfProbabilities : 0;
+
+            // if probability == 0
+
+            availabilityCoefficient =
+                goodProbabilities.Any() ? goodProbabilities.Aggregate((sumOfP, p) => sumOfP + Algebraic.Expand(p)) / sumOfProbabilities : 0;
+            unavailabilityCoefficient =
+                badProbabilities.Any() ? badProbabilities.Aggregate((sumOfP, p) => sumOfP + Algebraic.Expand(p)) / sumOfProbabilities : 0;
 
             var parser = new TexFormulaParser();
 
@@ -58,7 +67,8 @@ namespace DosCalculator.FormControls
             ApplyTexFormulaToPictureBox(readyFormula, readyPictureBox);
             var notReadyFormula = parser.Parse(@"\text{К}_{\text{Н}} = " + Algebraic.Expand(unavailabilityCoefficient).AsLatex());
             ApplyTexFormulaToPictureBox(notReadyFormula, notReadyPictureBox);
-            var checkFormula = parser.Parse(@"\text{К}_{\text{Г}} + \text{К}_{\text{Н}} = " + Algebraic.Expand(Algebraic.Expand(availabilityCoefficient + unavailabilityCoefficient)).AsLatex());
+            var checkFormula = parser.Parse(@"\text{К}_{\text{Г}} + \text{К}_{\text{Н}} = " +
+                                            Algebraic.Expand(Algebraic.Expand(availabilityCoefficient + unavailabilityCoefficient)).AsLatex());
             ApplyTexFormulaToPictureBox(checkFormula, checkPictureBox);
         }
 
@@ -70,12 +80,10 @@ namespace DosCalculator.FormControls
 
         private void checkPictureBox_Click(object sender, EventArgs e)
         {
-
         }
 
         private void probabilitiesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

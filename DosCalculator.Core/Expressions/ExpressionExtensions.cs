@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using MathNet.Symbolics;
 
-namespace DosCalculator.Extensions
+namespace DosCalculator.Core.Expressions
 {
     public static class ExpressionExtensions
     {
