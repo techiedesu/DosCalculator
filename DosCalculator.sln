@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DosCalculator", "DosCalcula
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DosCalculator.Tests", "DosCalculator.Tests\DosCalculator.Tests.csproj", "{61D88909-E57C-438B-B068-FA9C6E61BDA0}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DosCalculator.Core", "DosCalculator.Core\DosCalculator.Core.fsproj", "{EA970BF7-3556-4992-8C15-E77273912480}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{61D88909-E57C-438B-B068-FA9C6E61BDA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61D88909-E57C-438B-B068-FA9C6E61BDA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61D88909-E57C-438B-B068-FA9C6E61BDA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA970BF7-3556-4992-8C15-E77273912480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA970BF7-3556-4992-8C15-E77273912480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA970BF7-3556-4992-8C15-E77273912480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA970BF7-3556-4992-8C15-E77273912480}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
