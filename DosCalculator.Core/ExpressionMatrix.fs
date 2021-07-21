@@ -19,44 +19,32 @@ type Matrix with
     member this.isSquare() =
         this.x = this.y
     
-    // TODO: Merge removeColumn and removeRow to one function
-    member this.removeColumn columnNumber =
-        let recalculateNode node : Node =
+    member this.removeColumnRow number =
+        let recalculateNodeX node : Node =
             { node with
                 x = match node.x with
-                    | x when x > columnNumber ->
+                    | x when x > number ->
                         x - 1
                     | x ->
                         x }
-        
-        if this.x > columnNumber then
-            let nodes = this.nodes
-                        |> Array.filter ^ fun n -> n.x <> columnNumber
-                        |> Array.map recalculateNode
             
-            Some { this with
-                    nodes = nodes
-                    x = this.x - 1 }
-        else
-            None
-
-        member this.removeRow rowNumber =
-        let recalculateNode node : Node =
+        let recalculateNodeY node : Node =
             { node with
                 y = match node.y with
-                    | y when y > rowNumber ->
+                    | y when y > number ->
                         y - 1
                     | y ->
                         y }
         
-        if this.y > rowNumber then
+        if this.x > number && this.y > number then
             let nodes = this.nodes
-                        |> Array.filter ^ fun n -> n.y <> rowNumber
-                        |> Array.map recalculateNode
+                        |> Array.filter ^ fun n -> n.x <> number
+                        |> Array.map recalculateNodeX
+                        |> Array.map recalculateNodeY
             
             Some { this with
                     nodes = nodes
-                    y = this.y - 1 }
+                    x = this.x - 1 }
         else
             None
 
