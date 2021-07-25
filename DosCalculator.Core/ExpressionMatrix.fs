@@ -1,7 +1,8 @@
 ﻿module DosCalculator.Core.ExpressionMatrix
 
 open MathNet.Symbolics
-open DosCalculator.Core.SRTP
+open DosCalculator.Core.Extensions
+open DosCalculator.Core.Extensions.SRTP
 open NUnit.Framework
     
 type Node = {
@@ -189,4 +190,4 @@ let ``calculate determinant``() =
     let expected = Infix.parseOrUndefined "0"
     let actual = calculateDeterminant matrix
     
-    Assert.AreEqual(expected, actual)
+    Assert.areEqual expected actual
