@@ -8,10 +8,12 @@
 
     <ItemGroup>
         <Compile Include="Counter.fs" />
+        <Compile Include="Components.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\DosCalculator.Core\DosCalculator.Core.fsproj" />
       <ProjectReference Include="..\External\Avalonia.FuncUI.ControlCatalog\Avalonia.FuncUI.ControlCatalog.fsproj" />
       <ProjectReference Include="..\External\Avalonia.FuncUI.DSL\Avalonia.FuncUI.DSL.fsproj" />
       <ProjectReference Include="..\External\Avalonia.FuncUI.Elmish\Avalonia.FuncUI.Elmish.fsproj" />

@@ -2,6 +2,7 @@
 
 open Avalonia
 open Avalonia.Themes.Fluent
+open DosCalculator.Avalonia.Components
 open Elmish
 open Avalonia.FuncUI.Components.Hosts
 open Avalonia.FuncUI
@@ -17,7 +18,8 @@ type MainWindow() as this =
       
         //this.VisualRoot.VisualRoot.Renderer.DrawFps <- true
         //this.VisualRoot.VisualRoot.Renderer.DrawDirtyRects <- true
-        Elmish.Program.mkSimple (fun () -> Counter.init) Counter.update Counter.view
+//        Elmish.Program.mkSimple (fun () -> Counter.init) Counter.update Counter.view
+        Elmish.Program.mkSimple (fun () -> MatrixSize.init) MatrixSize.update MatrixSize.view
         |> Program.withHost this
         |> Program.withConsoleTrace
         |> Program.run
