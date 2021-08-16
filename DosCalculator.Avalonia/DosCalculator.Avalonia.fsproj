@@ -20,4 +20,9 @@
       <ProjectReference Include="..\External\Avalonia.FuncUI\Avalonia.FuncUI.fsproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Avalonia.Desktop" Version="0.10.0" />
+      <PackageReference Include="JaggerJo.Avalonia.FuncUI" Version="0.5.0-beta" />
+    </ItemGroup>
+
 </Project>
